@@ -7,6 +7,7 @@
       And I type "passw123" into element with xpath "//input[@formcontrolname='password']"
       And I click on element with xpath "//span[contains(text(), 'Sign In')]//ancestor::button"
       Then I wait for element with xpath "//h3[contains(text(),'Ava Stud')]" to be present
+      And I take screenshot
       Then element with xpath "//h3" should contain text "Ava Stud"
       Then element with xpath "//p[contains(text(),'STUDENT')]" should be displayed
       
