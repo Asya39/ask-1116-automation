@@ -71,7 +71,7 @@ public class AnaStepsDefs {
 
     @Then("I verify user name {string} and role {string}")
     public void iVerifyUserNameAndRole(String nameText, String roleText) {
-        new WebDriverWait(getDriver(), 15, 200).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h3[contains(text(),'"+ nameText +"')]")));
+        new WebDriverWait(getDriver(), 15, 200).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[contains(text(),'"+ nameText +"')]")));
         WebElement name = getDriver().findElement(By.xpath("//h3"));
         WebElement role = getDriver().findElement(By.xpath("//p[contains(text(),'"+ roleText +"')]"));
         assertThat(name.getText()).isEqualTo(nameText);
