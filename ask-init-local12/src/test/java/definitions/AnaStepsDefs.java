@@ -108,16 +108,20 @@ public class AnaStepsDefs {
 
     @And("I select value {string} for Group Filter drop down")
     public void iSelectValueForGroupFilterDropDown(String grFilVal) {
+       new WebDriverWait(getDriver(), 15, 200).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'All')]//ancestor::div[@class='mat-select-trigger']")));
         WebElement grFil = getDriver().findElement(By.xpath("//span[contains(text(),'All')]//ancestor::div[@class='mat-select-trigger']"));
         grFil.click();
+        new WebDriverWait(getDriver(), 15, 200).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-option[@role='option']/span[contains(text(),'"+ grFilVal +"')]")));
         WebElement val = getDriver().findElement(By.xpath("//mat-option[@role='option']/span[contains(text(),'"+ grFilVal +"')]"));
         val.click();
     }
 
     @And("I select quiz {string} for Select Quiz to Assign drop down")
     public void iSelectQuizForSelectQuizToAssignDropDown(String quizName) {
+       new WebDriverWait(getDriver(), 15, 200).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Select Quiz To Assign')]//ancestor::div[@class='mat-select-value']")));
         WebElement quizDD = getDriver().findElement(By.xpath("//span[contains(text(),'Select Quiz To Assign')]//ancestor::div[@class='mat-select-value']"));
         quizDD.click();
+        new WebDriverWait(getDriver(), 15, 200).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//mat-option[@role='option']/span[contains(text(),'"+ quizName +"')]")));
         WebElement quizVal = getDriver().findElement(By.xpath("//mat-option[@role='option']/span[contains(text(),'"+ quizName +"')]"));
         quizVal.click();
     }
